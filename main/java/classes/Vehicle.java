@@ -41,5 +41,13 @@ public class Vehicle implements Comparable<Vehicle> {
     public int compareTo(Vehicle o) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    public Owner getOwner() {
+        return Owner;
+    }
+
+    public void setOwner(Owner Owner) {
+        this.Owner = Owner;
+    }
     
 }

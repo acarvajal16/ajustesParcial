@@ -15,14 +15,14 @@ public class Node  <T extends Comparable<T>> {
     private Node<T> previous;
     private T value;
 
-    //constructor
+    
     public Node( T value) {
         this.next = next;
         this.previous = previous;
         this.value = value;
     }
 
-    //getters and setters
+    
     public T getValue() {
         return value;
     }

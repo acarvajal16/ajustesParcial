@@ -14,6 +14,17 @@ public class OriginalParking {
    
     private Node current = null;
     private CircularDLL<Vehicle> OriginalParkingLot;
+    
+    
+    public CircularDLL<Vehicle> getOriginalParkingLot(){
+        return OriginalParkingLot;
+    }
+    
+    public void setOriginalParkingLot(CircularDLL<Vehicle> OriginalParkingLot){
+        this.OriginalParkingLot= OriginalParkingLot;
+    }
+    
+    
 
 
 
@@ -38,7 +49,48 @@ public class OriginalParking {
 
 
     }
+        
+    public void deleteId(int id){
+        
+        Node deleteOwner= OriginalParkingLot.getFirst();
+        int deleteO= id;
+        
+        for(int i=0; i<=10; i++){
+            Vehicle vehicle= (Vehicle) deleteOwner.getValue();
+            Owner owner= vehicle.getOwner();
+            
+            if(owner.getId()== deleteO){
+                deleteOwner.setValue(null);
+                current= deleteOwner;
+                return;
+            }
+            
+            deleteOwner= deleteOwner.getNext();
+          
+        }
+        System.out.println("Id not found");
+        
+    } 
     
+    public void deleteByVrp(String vrp){
+         Node clearA= OriginalParkingLot.getFirst();
+         String delete= Vrp;
+         
+         for (int i=0; i<=10; i++){
+             Vehicle vehicle= (Vehicle) clearA.getValue();
+             
+             if(vehicle.getVrp().equals(delete)){
+                 clearA.setValue(null);
+                 current= clearA;
+                 return;
+             }
+             
+             clearA= clearA.getNext();
+         }
+         
+         System.out.println("Vehicle not found");
+     }
+     
 }
 
     public Node getCurrent() {
@@ -49,12 +101,6 @@ public class OriginalParking {
         this.current = current;
     }
 
-    public CircularDLL<Vehicle> getCircularParking() {
-        return OriginalParkingLot;
-    }
-
-    public void setCircularParking(CircularDLL<Vehicle> circularParking) {
-        this.OriginalParkingLot = OriginalParkingLot;
-    }
+    
     
 }

@@ -10,9 +10,16 @@ package classes;
  * @author Administrador
  */
 public class Owner {
+    public String ToString;
     private String name;
     private int id;
     private boolean afiliated;
+    
+    public Owner(String name, int id, boolean afiliated){
+        this.name=name;
+        this.id=id;
+        this.afiliated=afiliated;
+    }
 
     public String getName() {
         return name;
@@ -36,6 +43,11 @@ public class Owner {
 
     public void setAfiliated(boolean afiliated) {
         this.afiliated = afiliated;
+    }
+    
+    @Override
+    public String toString(){
+           return "ID:"+id+"Is afiliated?:"+afiliated;
     }
     
 }

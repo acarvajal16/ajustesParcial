@@ -8,6 +8,7 @@ package classes;
 /**
  *
  * @author Administrador
+ * @param <T>
  */
 public interface ICircularDLL <T> {
     public void add(T Object);

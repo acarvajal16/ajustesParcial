@@ -5,9 +5,12 @@
  */
 package classes;
 
+import static java.util.Collections.list;
+
 /**
  *
  * @author Administrador
+ * @param <T>
  */
 public class CircularDLL <T extends Comparable <T>> implements ICircularDLL <T> {
     
@@ -33,7 +36,9 @@ public class CircularDLL <T extends Comparable <T>> implements ICircularDLL <T> 
 
     @Override
     public int addByNearest() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        Vehicle vehicle = v;
+        
     }
 
     @Override
@@ -60,7 +65,14 @@ public class CircularDLL <T extends Comparable <T>> implements ICircularDLL <T> 
 
     @Override
     public void remove(int index) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Node compareId= list.getfirst();
+        int delete= id;
+        
+        for(int i=0; i<=10; i++){
+            Vehicle compare= (Vehicle) compareId.getValue();
+            Owner p= compare.getOwner;
+        }
+        
     }
 
     public Node getFirst() {
