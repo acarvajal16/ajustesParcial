@@ -12,10 +12,10 @@ package classes;
  */
 public interface ICircularDLL <T> {
     public void add(T Object);
-    public int addByNearest();
+    
     public void clear();
-    public void returnVehicle();
+    
     public int getTicket();
     public String getInfo();
-    public void remove (int index);
+    
 }

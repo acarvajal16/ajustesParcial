@@ -47,6 +47,10 @@ public class Node  <T extends Comparable<T>> {
         this.previous = previous;
     }
 
+    String getInfo() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
  
     
 }

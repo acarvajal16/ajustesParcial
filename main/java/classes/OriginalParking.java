@@ -38,14 +38,40 @@ public class OriginalParking {
 
     public void addVehicle(Vehicle Vehicle){
 
-        //   il = contador izquierda(left)
+        int i= 0;
         int il = 0;
         int ir = 0;
+        
+        Vehicle newV= Vehicle;
 
         if(current == null){
-            OriginalParkingLot.setFirst(current);
+            OriginalParkingLot.setFirst(current);        
         }
-        while(il <= 5 && ir <= 5){
+        
+        Node r= OriginalParkingLot.getCurrent();
+        Node l= OriginalParkingLot.getCurrent();
+        
+        while(il <= 5){
+            if(r.getValue()==null || r.getValue()=="Empty"){
+                
+                current= r;
+                current.setValue(newV);
+                return;
+                
+            }
+            
+            r= r.getNext();
+            i++;
+            
+            if(l.getValue()==null || l.getValue()=="Empty"){
+                current= l;
+                current.setValue(newV);
+                return;
+            }
+            
+            l=l.getNext();
+            i++;
+        }
 
 
     }
@@ -72,35 +98,48 @@ public class OriginalParking {
         
     } 
     
-    public void deleteByVrp(String vrp){
-         Node clearA= OriginalParkingLot.getFirst();
-         String delete= Vrp;
-         
-         for (int i=0; i<=10; i++){
-             Vehicle vehicle= (Vehicle) clearA.getValue();
-             
-             if(vehicle.getVrp().equals(delete)){
-                 clearA.setValue(null);
-                 current= clearA;
-                 return;
-             }
-             
-             clearA= clearA.getNext();
-         }
-         
-         System.out.println("Vehicle not found");
-     }
-     
-}
-
-    public Node getCurrent() {
-        return current;
+    public void deleteById(int id){
+        Node deleteOwner= OriginalParkingLot.getFirst();
+        int dO= id;
+        
+        for(int i=0; i<=10; i++){
+            Vehicle vehicle= (Vehicle) deleteOwner.getValue();
+            Owner O= vehicle.getOwner();
+            
+        
+            if(O.getId()==dO){
+                deleteOwner.setValue(null);
+                current= deleteOwner;
+                return;
+            }
+        
+            deleteOwner= deleteOwner.getNext();
     }
-
-    public void setCurrent(Node current) {
-        this.current = current;
+        System.out.println("User not found");
     }
+        public void deleteByVrp(String vrp){
+             Node clearA= OriginalParkingLot.getFirst();
+             String delete= vrp;
+
+             for (int i=0; i<=10; i++){
+                 Vehicle vehicle= (Vehicle) clearA.getValue();
+
+                 if(vehicle.getVrp().equals(delete)){
+                     clearA.setValue(null);
+                     current= clearA;
+                     return;
+                 }
+             
+                clearA= clearA.getNext();
+            }
+
+            System.out.println("Vehicle not found");
+        }
+
+   }
+
+   
 
     
     
-}
+

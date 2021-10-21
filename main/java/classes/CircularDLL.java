@@ -6,6 +6,7 @@
 package classes;
 
 import static java.util.Collections.list;
+import static jdk.nashorn.internal.runtime.Debug.id;
 
 /**
  *
@@ -33,13 +34,31 @@ public class CircularDLL <T extends Comparable <T>> implements ICircularDLL <T> 
             first.setPrevious(last);
         }
     }
-
-    @Override
-    public int addByNearest() {
-        
-        Vehicle vehicle = v;
-        
+    public Node getFirst(){
+        return first;
     }
+    
+    public void setFirst(Node first){
+        this.first= first;
+    }
+    
+    public Node getLast(){
+        return last;
+    }
+    
+    public void setLast(Node last){
+        this.last= last;
+    }
+    
+    public Node getCurrent(){
+        return current;
+    }
+    
+    public void setCurrent(){
+        this.current=current;
+    }
+
+    
 
     @Override
     public void clear() {
@@ -48,10 +67,7 @@ public class CircularDLL <T extends Comparable <T>> implements ICircularDLL <T> 
         
     }
 
-    @Override
-    public void returnVehicle() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 
     @Override
     public int getTicket() {
@@ -60,44 +76,27 @@ public class CircularDLL <T extends Comparable <T>> implements ICircularDLL <T> 
 
     @Override
     public String getInfo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void remove(int index) {
-        Node compareId= list.getfirst();
-        int delete= id;
+        Node current= first;
         
-        for(int i=0; i<=10; i++){
-            Vehicle compare= (Vehicle) compareId.getValue();
-            Owner p= compare.getOwner;
+        String ans= "";
+        
+        
+        for(int i=0; i<10;i++){
+            System.out.println(current.getValue());
+            current= current.getNext();
         }
         
+        do{
+            ans +=current.getInfo() + "\n";
+            current= current.getNext();
+        }while(current!=first);
+        return ans;
+        
     }
 
-    public Node getFirst() {
-        return first;
-    }
+    
 
-    public void setFirst(Node first) {
-        this.first = first;
-    }
-
-    public Node getLast() {
-        return last;
-    }
-
-    public void setLast(Node last) {
-        this.last = last;
-    }
-
-    public Node getCurrent() {
-        return current;
-    }
-
-    public void setCurrent(Node current) {
-        this.current = current;
-    }
+    
     
     
 }
